@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="107dp"
+        android:layout_width="140dp"
         android:layout_height="28dp"
+        android:background="#00EC1313"
         android:gravity="center"
         android:text="@string/saludo"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">b2023-gr1sw-svnm</string>
+    <string name="saludo">Buenas noches</string>
+    <color name="fondo">#FF0000</color>
+    <color name="text">#101010</color>
+</resources>
