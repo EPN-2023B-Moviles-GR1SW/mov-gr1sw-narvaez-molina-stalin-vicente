@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">b2023-gr1sw-svnm</string>
     <string name="saludo">Buenas noches</string>
+    <string name="ciclo_vida">Ciclo Vida</string>
     <color name="fondo">#FF0000</color>
     <color name="text">#101010</color>
 </resources>
