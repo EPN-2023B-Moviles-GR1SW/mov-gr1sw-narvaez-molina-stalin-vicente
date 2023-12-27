@@ -6,4 +6,12 @@
     <string name="ciclo_vida">Ciclo Vida</string>
     <color name="fondo">#A416E0</color>
     <color name="text">#FFFFFFFF</color>
+
+    <string-array name="string_array_opciones_dialogo" >
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wedneday</item>
+        <item>Thursday</item>
+        <item></item>
+    </string-array>
 </resources>

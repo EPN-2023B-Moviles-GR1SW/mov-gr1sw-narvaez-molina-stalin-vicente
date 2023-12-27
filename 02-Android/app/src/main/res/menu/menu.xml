@@ -7,7 +7,7 @@
         android:icon="@android:drawable/ic_menu_edit"
         android:title="Editar" />
     <item
-        android:id="@+id/mi_emilinar"
+        android:id="@+id/mi_eliminar"
         android:icon="@android:drawable/ic_menu_delete"
         android:title="Eliminar" />
 </menu>

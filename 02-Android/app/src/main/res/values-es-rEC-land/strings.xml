@@ -5,4 +5,11 @@
     <string name="ciclo_vida">Ciclo Vida</string>
     <color name="fondo">#FF0000</color>
     <color name="text">#101010</color>
+    <string-array name="string_array_opciones_dialogo">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+        <item>Jueves</item>
+        <item></item>
+    </string-array>
 </resources>

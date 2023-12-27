@@ -20,8 +20,8 @@ fun main() {
     ejemploVariable.trim()
     // ejemploVariable = edadEjemplo;
 
-    // Variable primitiva
-    val nombreProfesor: String = "Adrian Eguez"
+    // Variables primitivas
+    val nombreProfesor: String = "Stalin Vicente Narvaez Molina"
     val sueldo: Double = 1.2
     val estadoCivil: Char = 'C'
     val mayorEdad: Boolean = true

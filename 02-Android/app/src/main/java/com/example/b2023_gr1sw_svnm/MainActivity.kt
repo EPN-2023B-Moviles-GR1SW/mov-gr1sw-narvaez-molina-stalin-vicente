@@ -1,9 +1,14 @@
 package com.example.b2023_gr1sw_svnm
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.result.contract.ActivityResultContracts
+import com.google.android.material.snackbar.Snackbar
 import com.example.b2023_gr1sw_svnm.ui.theme.B2023gr1swsvnmTheme
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +29,29 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener {
                 irActividad(BListView::class.java)
             }
+
+        val botonIntentImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
+        botonIntentImplicito
+            .setOnClickListener {
+                val intentConRespuesta = Intent(
+                    Intent.ACTION_PICK,
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+                )
+                callbackIntentPickUri.launch(intentConRespuesta)
+
+            }
+        val botonIntentExplicito = findViewById<Button>(R.id.btn_ir_intent_explicito)
+        botonIntentExplicito
+            .setOnClickListener {
+                abrirActividadConParametros(CIntentExplicitoParametros::class.java)
+            }
+    }
+
+    fun abrirActividadConParametros(clase: Class<*>) {
+        val intentExplicito = Intent (this,clase)
+        intentExplicito.putExtra("nombre","Stalin")
+        intentExplicito.putExtra("apellido","Narvaez")
+        intentExplicito.putExtra("edad",23)
     }
 
     fun irActividad(
@@ -33,4 +61,53 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
+
+    val callbackContenidoIntentExplicito =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                if (result.data != null) {
+                    val data = result.data
+                    mostrarSnackbar(
+                        "${data?.getStringExtra("NombreModificado")}"
+                    )
+
+
+                }
+            }
+        }
+    val callbackIntentPickUri =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode === Activity.RESULT_OK) {
+                if (result.data != null) {
+                    if (result.data!!.data != null) {
+                        val uri: Uri = result.data!!.data!!
+                        val cursor = contentResolver.query(
+                            uri, null, null, null, null, null
+                        )
+                        cursor?.moveToFirst()
+                        val indiceTelefono = cursor?.getColumnIndex(
+                            ContactsContract.CommonDataKinds.Phone.NUMBER
+                        )
+                        val telefono = cursor?.getString(indiceTelefono!!)
+                        cursor?.close()
+                        mostrarSnackbar("Telefono ${telefono}")
+                    }
+                }
+            }
+        }
+
+    fun mostrarSnackbar(texto: String) {
+        Snackbar.make(
+            findViewById(R.id.id_layout_main),
+            texto,
+            Snackbar.LENGTH_LONG
+        )
+            .show()
+    }
+
+
 }
