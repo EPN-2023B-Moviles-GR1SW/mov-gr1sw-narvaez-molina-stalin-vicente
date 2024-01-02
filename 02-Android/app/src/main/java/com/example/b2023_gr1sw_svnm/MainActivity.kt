@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+        //BAse de Datos sqlite
+        EBaseDeDatos.tablaEntrenador = ESqliteHelperEntrenador(this)
+
 
         val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
         botonCicloVida
@@ -45,13 +48,18 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener {
                 abrirActividadConParametros(CIntentExplicitoParametros::class.java)
             }
+        val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
+        botonSqlite
+            .setOnClickListener {
+                abrirActividadConParametros(ECrudEntrenador::class.java)
+            }
     }
 
     fun abrirActividadConParametros(clase: Class<*>) {
-        val intentExplicito = Intent (this,clase)
-        intentExplicito.putExtra("nombre","Stalin")
-        intentExplicito.putExtra("apellido","Narvaez")
-        intentExplicito.putExtra("edad",23)
+        val intentExplicito = Intent(this, clase)
+        intentExplicito.putExtra("nombre", "Stalin")
+        intentExplicito.putExtra("apellido", "Narvaez")
+        intentExplicito.putExtra("edad", 23)
     }
 
     fun irActividad(

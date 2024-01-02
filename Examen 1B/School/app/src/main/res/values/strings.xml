@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">School</string>
+    ///labels
+    <string name="lblListaEstudiate">Estudiantes registrados</string>
+    <string name="lblListaClases">Clases registradas</string>
+    <string name="lblFormularioEstudiante" >Formualario Estudiante</string>
+    //buttons
+    <string name="btnListEstudiantes">Estudiantes registrados</string>
+    <string name="btnListClases">Clases</string>
+    ///titles
+    <string name="titleMainActivity">Apps Moviles EPN</string>
+
+</resources>

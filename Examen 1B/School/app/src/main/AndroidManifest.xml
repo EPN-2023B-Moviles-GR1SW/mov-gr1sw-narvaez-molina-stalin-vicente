@@ -13,21 +13,22 @@
         android:theme="@style/Theme.AppCompat.Light"
         tools:targetApi="31">
         <activity
-            android:name=".ECrudEntrenador"
+            android:name=".Formulario_Clase"
             android:exported="false" />
         <activity
-            android:name=".CIntentExplicitoParametros"
+            android:name=".Formulario_Estudiante"
             android:exported="false" />
         <activity
-            android:name=".BListView"
+            android:name=".lista_clases"
             android:exported="false" />
         <activity
-            android:name=".ACicloVida"
+            android:name=".lista_estudientes"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
