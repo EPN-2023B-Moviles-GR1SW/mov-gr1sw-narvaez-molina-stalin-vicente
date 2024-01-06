@@ -1,0 +1,10 @@
+1,Matematicas,5,Danna,501
+2,Fisca,5,Chente,503
+3,Ciencia,5,Chente,503
+4,Historia,5,Chente,503
+5,POO,5,Chente,503
+6,HCI,5,Chente,503
+7,Programacion Web,5,Chente,503
+8,Lenguaje,5,Chente,503
+9,Quimica,5,Chente,503
+10,Programación,10,Fabian,501

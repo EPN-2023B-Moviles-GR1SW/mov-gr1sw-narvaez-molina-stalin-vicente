@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_sqlite"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ECrudEntrenador">
@@ -60,35 +61,35 @@
         app:layout_constraintStart_toStartOf="@+id/btn_crear_bdd" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/input_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Ingrese ID"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText2"
+        app:layout_constraintBottom_toTopOf="@+id/input_nombre"
+        app:layout_constraintEnd_toEndOf="@+id/input_nombre"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
+        app:layout_constraintStart_toStartOf="@+id/input_nombre"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.272" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/input_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="Ingrese nombre"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText3"
+        app:layout_constraintBottom_toTopOf="@+id/input_descripcion"
+        app:layout_constraintEnd_toEndOf="@+id/input_descripcion"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextText3" />
+        app:layout_constraintStart_toStartOf="@+id/input_descripcion" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/input_descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
@@ -96,6 +97,7 @@
         android:hint="Ingrese Descripción"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btn_crear_bdd"
-        tools:layout_editor_absoluteX="100dp" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_crear_bdd"
+        app:layout_constraintStart_toStartOf="@+id/btn_crear_bdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

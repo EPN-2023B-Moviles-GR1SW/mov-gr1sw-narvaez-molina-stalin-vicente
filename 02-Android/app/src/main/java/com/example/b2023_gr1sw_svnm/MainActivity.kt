@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity() {
         val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
         botonSqlite
             .setOnClickListener {
-                abrirActividadConParametros(ECrudEntrenador::class.java)
+                irActividad(ECrudEntrenador::class.java)
+                mostrarSnackbar("Ir a EcruEntreandor")
             }
     }
 
