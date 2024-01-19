@@ -1,5 +1,6 @@
 package com.example.school
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
@@ -7,19 +8,26 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 class lista_clases : AppCompatActivity() {
+    //Declaración de Variables a usar 
     val arreglo = BaseDeDatos.arregloClases
     var posicionItemSeleccionado = -1
+    var claseSeleccionada = -1
+
+    private lateinit var adaptador: ArrayAdapter<Clase>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_clases)
         val listView = findViewById<ListView>(R.id.lv_lista_clases)
 
-        val adaptador = ArrayAdapter(
+        adaptador = ArrayAdapter(
             this,//contexto
             android.R.layout.simple_list_item_1, //como se va a ver XML
             arreglo
@@ -28,6 +36,20 @@ class lista_clases : AppCompatActivity() {
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
         registerForContextMenu(listView)
+
+        //buttons
+        val btn_anadir_clase = findViewById<FloatingActionButton>(R.id.btn_anadir_clase)
+        btn_anadir_clase
+            .setOnClickListener {
+                mostrarSnackbar("Dirigiendo al formulario clase")
+                irActividad(Formulario_Clase::class.java)
+            }
+
+        val btn_home_lista_clases = findViewById<Button>(R.id.btn_home_list_clases)
+        btn_home_lista_clases
+            .setOnClickListener{
+                irActividad(MainActivity::class.java)
+            }
     }
 
     //mostrar menu emergente en un elemnto de la lista
@@ -41,7 +63,7 @@ class lista_clases : AppCompatActivity() {
 
         // Infla (crea) el menú desde un archivo XML de recursos (R.menu.menu) y lo muestra en el contexto
         val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
+        inflater.inflate(R.menu.menu_clase, menu)
 
         // Obtiene información sobre el elemento de lista que se ha mantenido presionado para mostrar el menú
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
@@ -54,18 +76,43 @@ class lista_clases : AppCompatActivity() {
     //Acciones al seleccional un item del menu
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.mi_editar -> {
-                // Acción cuando se selecciona "Editar" en el menú contextual
-                // Muestra un Snackbar con la posición del elemento seleccionado
+            R.id.mi_ver_estudiantes -> {
+
                 mostrarSnackbar("${posicionItemSeleccionado}")
+                irActividadConParametrosPosicionItem(
+                    lista_estudiantes::class.java,
+                    posicionItemSeleccionado
+                )
+                this.posicionItemSeleccionado = -1
+                return true // Indica que se ha manejado la acción correctamente
+            }
+
+            R.id.mi_editar -> {
+                val claseSeleccionada = arreglo[posicionItemSeleccionado]
+
+                // Ahora puedes acceder a los datos de la clase seleccionada
+                val idClase = claseSeleccionada.idClass
+                val nombreClase = claseSeleccionada.nombre
+                val descripcionClase = claseSeleccionada.descripcion
+                this.claseSeleccionada = idClase
+
+                // Puedes imprimir o usar estos datos según tus necesidades
+                println("ID de la clase seleccionada: $idClase")
+                println("Nombre de la clase seleccionada: $nombreClase")
+                println("Descripción de la clase seleccionada: $descripcionClase")
+
+
+
+                irActividadConParametros(Formulario_Clase::class.java, this.claseSeleccionada)
+                mostrarSnackbar("${this.claseSeleccionada}")
                 return true // Indica que se ha manejado la acción correctamente
             }
 
             R.id.mi_eliminar -> {
-                // Acción cuando se selecciona "Eliminar" en el menú contextual
-                // Muestra un Snackbar con la posición del elemento seleccionado
+                val claseSeleccionada = arreglo[posicionItemSeleccionado]
+                val idClase = claseSeleccionada.idClass
+                this.claseSeleccionada = idClase
                 mostrarSnackbar("${posicionItemSeleccionado}")
-                // Abre un diálogo (supuestamente) para confirmar la eliminación del elemento
                 abrirDialogo()
                 return true // Indica que se ha manejado la acción correctamente
             }
@@ -74,6 +121,7 @@ class lista_clases : AppCompatActivity() {
             // Si no se selecciona ninguna opción conocida, delega al comportamiento predeterminado
         }
     }
+
     //abrir dialogo de confirmaicon
     fun abrirDialogo() {
         val builder = AlertDialog.Builder(this)
@@ -83,28 +131,53 @@ class lista_clases : AppCompatActivity() {
             "Aceptar"
         ) { dialog, which ->
             mostrarSnackbar("Eliminar aceptado")
-            // Aquí deberías agregar la lógica para eliminar el elemento
-            // Por ejemplo: eliminarElemento(posicionItemSeleccionado)
+            BaseDeDatos.eliminarClasePorId(adaptador, claseSeleccionada)
+
         }
 
         builder.setNegativeButton(
             "Cancelar"
         ) { dialog, which ->
-            // Aquí puedes manejar alguna acción si se cancela la eliminación
+            this.claseSeleccionada = -1
         }
 
         val dialogo = builder.create()
         dialogo.show()
     }
 
-    //Mensajes en snackbar
+    //Ir actividad
+    fun irActividad(
+        clase: Class<*>
+
+    ) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
+    }
+
+    //Ir actividad con parametros
+    fun irActividadConParametros(clase: Class<*>, idClass: Int) {
+        val intentExplicito = Intent(this, clase)
+        intentExplicito.putExtra("idClase", idClass)
+        startActivity(intentExplicito)
+    }
+
+    fun irActividadConParametrosPosicionItem(clase: Class<*>, posicionItem: Int) {
+        val intentExplicito = Intent(this, clase)
+        intentExplicito.putExtra("posicionItem", posicionItem)
+        startActivity(intentExplicito)
+    }
+
+
+    //    Mensajes en snackbar
     fun mostrarSnackbar(texto: String) {
         Snackbar
             .make(
-                findViewById(R.id.lv_lista_estudiantes), // view
+                findViewById(R.id.activity_view_lista_clases), // view
                 texto, // texto
                 Snackbar.LENGTH_LONG // tiempo
             )
             .show() //muestra el snackbar
     }
+
+
 }

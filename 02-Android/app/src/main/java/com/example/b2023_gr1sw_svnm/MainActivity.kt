@@ -54,6 +54,18 @@ class MainActivity : AppCompatActivity() {
                 irActividad(ECrudEntrenador::class.java)
                 mostrarSnackbar("Ir a EcruEntreandor")
             }
+        val botonRView = findViewById<Button>(R.id.btn_revcycler_view)
+        botonRView
+            .setOnClickListener {
+                irActividad(FRecyclerView::class.java)
+                mostrarSnackbar("Ir a FRecicler")
+            }
+        val botonGoogleMaps = findViewById<Button>(R.id.btn_google_maps)
+        botonGoogleMaps
+            .setOnClickListener {
+                irActividad(GoogleMapsInicio::class.java)
+                mostrarSnackbar("Google Maps")
+            }
     }
 
     fun abrirActividadConParametros(clase: Class<*>) {

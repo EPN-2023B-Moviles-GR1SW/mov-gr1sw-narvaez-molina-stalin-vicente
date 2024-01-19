@@ -2,75 +2,81 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_layout_Form_Estudiante"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Formulario_Estudiante">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="@string/lblFormularioEstudiante"
-        android:textStyle="bold"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="478dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="62dp">
 
-    <Button
-        android:id="@+id/btn_agregar_estudiante"
-        android:layout_width="360dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="411dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="272dp"
-        android:text="Añadir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_email_estudiante"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txt_email_estudiante"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Formulario Estudiante"
+            android:textColor="#000000"
+            android:textSize="34sp" />
 
-    <EditText
-        android:id="@+id/txt_apellido_estudiante"
-        android:layout_width="363dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="246dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Apellido"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/txt_nombre_estudiante"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txt_nombre_estudiante"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Id: " />
 
-    <EditText
-        android:id="@+id/txt_nombre_estudiante"
-        android:layout_width="363dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.449"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/txt_id_estudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="1"
+            android:inputType="text" />
 
-    <EditText
-        android:id="@+id/txt_email_estudiante"
-        android:layout_width="363dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/txt_apellido_estudiante"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txt_apellido_estudiante"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre:" />
+
+        <EditText
+            android:id="@+id/txt_nombre_estudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Vicente"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apellido:" />
+
+        <EditText
+            android:id="@+id/txt_apellido_estudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Narvaez"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_guardar_estudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4CAF50"
+            android:text="Guardar"
+            android:textColor="#FFFEFE"
+            android:textSize="24sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

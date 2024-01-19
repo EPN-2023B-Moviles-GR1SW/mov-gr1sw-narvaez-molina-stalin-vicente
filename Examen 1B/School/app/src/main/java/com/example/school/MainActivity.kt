@@ -11,32 +11,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn_listview_lista_estudiantes = findViewById<Button>(R.id.btn_lv_estudiantes)
+        val btnListViewEstudiantes = findViewById<Button>(R.id.btn_lv_estudiantes)
+        btnListViewEstudiantes.setOnClickListener {
+            // mostrarSnackbar("Redirigiendo a lista de Estudiantes")
+            irActividad(lista_estudiantes::class.java)
+        }
 
-        btn_listview_lista_estudiantes
-            .setOnClickListener {
-                mostrarSnackbar("Aplasto en el boton de ver lista estudientes")
-                irActividad(lista_estudientes::class.java)
-            }
 
-        val btn_listview_lista_clases = findViewById<Button>(R.id.btn_lv_clases)
-        btn_listview_lista_clases
-            .setOnClickListener{
-                mostrarSnackbar("Aplasto en el boton de ver lista de clases")
-                irActividad(lista_clases::class.java)
-            }
+        val btnListViewClases = findViewById<Button>(R.id.btn_lv_clases)
+        btnListViewClases.setOnClickListener {
+//            mostrarSnackbar("Redirigiendo a lista de Clases")
+            irActividad(lista_clases::class.java)
+        }
     }
 
     //mostrar mensajes
     fun mostrarSnackbar(texto: String) {
         Snackbar.make(
-            findViewById(R.id.id_layout_activity_main),
+            findViewById(R.id.activity_view_main),
             texto,
-            Snackbar.LENGTH_LONG
+            Snackbar.LENGTH_INDEFINITE
         )
             .show()
     }
 
+    //ir a la siguiente actividad
     fun irActividad(
         clase: Class<*>
 

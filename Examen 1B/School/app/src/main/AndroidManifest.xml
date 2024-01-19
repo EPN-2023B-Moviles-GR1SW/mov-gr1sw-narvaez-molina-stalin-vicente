@@ -22,13 +22,13 @@
             android:name=".lista_clases"
             android:exported="false" />
         <activity
-            android:name=".lista_estudientes"
+            android:name=".lista_estudiantes"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
