@@ -63,8 +63,12 @@ class MainActivity : AppCompatActivity() {
         val botonGoogleMaps = findViewById<Button>(R.id.btn_google_maps)
         botonGoogleMaps
             .setOnClickListener {
-                irActividad(GoogleMapsInicio::class.java)
-                mostrarSnackbar("Google Maps")
+                irActividad(GGoogleMapsActivity::class.java)
+            }
+        val botonAunthentication = findViewById<Button>(R.id.btn_intent_firebase_ui)
+        botonAunthentication
+            .setOnClickListener {
+                irActividad(HFirebaseUIAuth::class.java)
             }
     }
 
