@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace 'com.example.b2023_gr1sw_svnm'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.b2023_gr1sw_svnm"
