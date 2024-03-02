@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Multicines" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Multicines" parent="Theme.AppCompat.Light" />
+
+
+    <style name="MenuItemTextStyleActive">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#545661</item>
+        <!-- Otros atributos de estilo de texto para el estado activo -->
+    </style>
+
+    <style name="MenuItemTextStyleNormal">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#545661</item>
+        <!-- Otros atributos de estilo de texto para el estado normal -->
+
+
+    </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#fcb115</item>
+        <item name="colorPrimaryDark">#9396a5</item>
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+    </style>
 </resources>
