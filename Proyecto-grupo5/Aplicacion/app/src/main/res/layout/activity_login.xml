@@ -25,8 +25,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/subLayout2"
-        android:layout_width="302dp"
-        android:layout_height="309dp"
+        android:layout_width="358dp"
+        android:layout_height="320dp"
         android:layout_marginTop="32dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -43,17 +43,22 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            app:endIconDrawable="@drawable/baseline_email_24"
+            app:endIconDrawable="@android:drawable/btn_star"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/baseline_email_24">
+            app:startIconDrawable="@android:drawable/ic_lock_idle_alarm">
 
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="User" />
+                android:layout_height="45dp"
+                android:background="@drawable/rounded_input"
+                android:drawableEnd="@drawable/user"
+                android:drawableTint="#231B7D"
+                android:hint="User"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -70,20 +75,33 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:background="@drawable/rounded_input"
+                android:drawableEnd="@drawable/key"
+                android:drawableTint="#231B7D"
                 android:hint="Contraseña"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_button"
+            android:drawableTint="#231B7D"
             android:fontFamily="sans-serif-medium"
             android:text="Iniciar Sesión"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            app:layout_constraintCircleRadius="21dp"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
@@ -91,12 +109,14 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:shadowColor="#121CD6"
             android:text="Olvide mi usuario o contraseña"
             android:textColor="#BF000000"
             app:layout_constraintEnd_toEndOf="@+id/button"
             app:layout_constraintStart_toStartOf="@+id/button"
-            app:lineHeight="@dimen/material_emphasis_disabled"
-            tools:layout_editor_absoluteY="247dp" />
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:lineHeight="@dimen/material_emphasis_disabled" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
