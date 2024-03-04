@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.firebase.appdistribution'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -28,9 +29,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures{
-        viewBinding = true
-    }
+//    buildFeatures{
+//        viewBinding = true
+//    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -71,4 +72,13 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    /Firebase/
+    implementation(platform("com.google.firebase:firebase-bom:30.1.0"))
+    implementation("com.google.android.gms:play-services-auth:20.0.1")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    // UI libreria auth
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+    // Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx")
 }

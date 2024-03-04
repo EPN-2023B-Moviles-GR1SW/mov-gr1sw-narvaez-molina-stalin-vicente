@@ -3,15 +3,24 @@ package com.example.politodo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
-class CrearTarea : AppCompatActivity() {
+
+class Settings : AppCompatActivity() {
+    private lateinit var btnLogout: Button
+    private lateinit var auth: FirebaseAuth
     private lateinit var bottomNavigationView: BottomNavigationView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crear_tarea)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_settings)
+
+        // Inicializar Firebase Authentication
+        auth = FirebaseAuth.getInstance()
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
@@ -27,12 +36,28 @@ class CrearTarea : AppCompatActivity() {
                 }
 
                 R.id.menu_nav_settings-> {
-                    irActividad(Settings::class.java)
+                    //Ya estas aqui
                     true
                 }
                 else -> false
             }
         }
+
+
+
+        btnLogout = findViewById(R.id.btn_logout)
+        btnLogout
+            .setOnClickListener {
+
+                println("Usuario antes del deslogueo: ${auth.currentUser}")
+                // Cerrar sesión del usuario actual
+                FirebaseAuth.getInstance().signOut()
+                println("se deslogueo de la cuenta ")
+                println("Usuario DESPUES del deslogueo: ${auth.currentUser}")
+
+                irActividad(Login::class.java)
+
+            }
 
     }
 
@@ -43,7 +68,4 @@ class CrearTarea : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
-
-
-
 }
