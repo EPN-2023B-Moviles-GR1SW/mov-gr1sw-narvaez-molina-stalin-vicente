@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
@@ -15,6 +16,7 @@ class Login : AppCompatActivity() {
     private lateinit var txtPasswordUser: EditText
     private lateinit var btnLogin: Button
     private lateinit var auth: FirebaseAuth
+    private lateinit var btnNewUser: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -28,9 +30,15 @@ class Login : AppCompatActivity() {
         txtUserLogin = findViewById(R.id.txtUserLogin)
         txtPasswordUser = findViewById(R.id.txtPasswordUser)
         btnLogin = findViewById(R.id.btnLogin)
+        btnNewUser = findViewById(R.id.btn_new_user)
+        btnNewUser
+            .setOnClickListener {
+                irActividad(SignUp::class.java)
+
+            }
 
         //listener del boton
-        btnLogin.setOnClickListener{
+        btnLogin.setOnClickListener {
             val email = txtUserLogin.text.toString()
             val password = txtPasswordUser.text.toString()
 
@@ -65,6 +73,8 @@ class Login : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+
+
 
         }
 

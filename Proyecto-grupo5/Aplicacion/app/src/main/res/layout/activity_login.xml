@@ -27,7 +27,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/subLayout2"
         android:layout_width="358dp"
-        android:layout_height="320dp"
+        android:layout_height="400dp"
         android:layout_marginTop="32dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -105,17 +105,34 @@
             app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <Button
+            android:id="@+id/btn_new_user"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:shadowColor="#121CD6"
+            android:layout_height="35dp"
+            android:layout_marginTop="24dp"
+            android:background="#00FFFFFF"
+            android:text="¿Eres nuevo aquí? Regístrate ahora mismo"
+            android:textColor="@color/primary_color_app"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/button5"
+            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintStart_toStartOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="24dp"
+            android:background="#00FFFFFF"
             android:text="Olvide mi usuario o contraseña"
-            android:textColor="#BF000000"
+            android:textColor="@color/primary_color_app"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/btnLogin"
+            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="@+id/btnLogin"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

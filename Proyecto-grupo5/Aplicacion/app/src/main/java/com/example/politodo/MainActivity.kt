@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        btnAddCategory = findViewById(R.id.btn_add_category)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             irActividad(Login::class.java)
         }
     }
+
     fun abrirLogin() {
         irActividad(Login::class.java)
     }
