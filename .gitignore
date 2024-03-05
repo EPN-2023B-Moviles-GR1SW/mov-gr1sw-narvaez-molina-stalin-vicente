@@ -18,3 +18,5 @@ DS_Store
 .externalNativeBuild
 .cxx
 local.properties
+/drawable
+drawable
