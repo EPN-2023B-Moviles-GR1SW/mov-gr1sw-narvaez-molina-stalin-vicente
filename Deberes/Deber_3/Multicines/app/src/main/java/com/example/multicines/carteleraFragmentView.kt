@@ -1,10 +1,13 @@
 package com.example.multicines
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,7 +23,7 @@ class carteleraFragmentView : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    lateinit var contexto: Context // Declarar la variable contexto
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,8 +36,11 @@ class carteleraFragmentView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        contexto = requireContext()
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cartelera_view, container, false)
+    inicializarRecyclerView()
     }
 
     companion object {
@@ -55,5 +61,19 @@ class carteleraFragmentView : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun inicializarRecyclerView() {
+        val recyclerView = (contexto as AppCompatActivity).findViewById<RecyclerView>(R.id.rv_pelis)
+        val adaptador = FReciclerAdapter(
+            contexto,
+            Database.arregloPeliculas,
+            recyclerView
+        )
+        recyclerView.adapter = adaptador
+        recyclerView.itemAnimator = androidx.recyclerview.widget
+            .DefaultItemAnimator()
+        recyclerView.layoutManager = androidx.recyclerview.widget
+            .LinearLayoutManager(contexto)
+        adaptador.notifyDataSetChanged()
     }
 }

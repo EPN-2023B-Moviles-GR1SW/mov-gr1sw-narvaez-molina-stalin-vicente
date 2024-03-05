@@ -4,20 +4,18 @@
 
     <item
         android:id="@+id/btnNavInicio"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/iconoinicio"
         android:title="Inicio" />
     <item
         android:id="@+id/btnNavCartelera"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/iconcartelera"
+
         android:title="Cartelera" />
     <item
         android:id="@+id/btnNavDulceria"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/icondulceria"
         android:title="Dulcería" />
-    <item
-        android:id="@+id/btnNavMulticlub"
-        android:icon="@drawable/multiclub"
-        android:title="Multiclub" />
+
     <item
         android:id="@+id/btnNavPerfil"
         android:icon="@drawable/usuario"

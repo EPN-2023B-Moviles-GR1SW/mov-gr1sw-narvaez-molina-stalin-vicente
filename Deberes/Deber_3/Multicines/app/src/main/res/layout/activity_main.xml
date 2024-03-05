@@ -29,8 +29,6 @@
         app:itemTextColor="#9396a5"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation_views" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

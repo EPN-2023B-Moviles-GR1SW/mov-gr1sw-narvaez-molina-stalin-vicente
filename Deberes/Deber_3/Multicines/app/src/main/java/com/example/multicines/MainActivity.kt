@@ -2,11 +2,14 @@ package com.example.multicines
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
+import android.view.ViewGroup
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -32,10 +35,10 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.btnNavMulticlub -> {
-                    replaceFragment(multiclubFragmentView())
-                    true
-                }
+//                R.id.btnNavMulticlub -> {
+//                    replaceFragment(multiclubFragmentView())
+//                    true
+//                }
 
                 R.id.btnNavPerfil -> {
                     replaceFragment(perfilFragmentView())
@@ -71,5 +74,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
+
+
 }
 

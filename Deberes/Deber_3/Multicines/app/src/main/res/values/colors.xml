@@ -10,4 +10,5 @@
     <color name="background_nav">#111317</color>
     <color name="selected_icon_color">#fcb115</color>
     <color name="unselected_icon_color">#9396a5</color>
+    <color name="btncolorback">#2c2d30</color>
 </resources>
