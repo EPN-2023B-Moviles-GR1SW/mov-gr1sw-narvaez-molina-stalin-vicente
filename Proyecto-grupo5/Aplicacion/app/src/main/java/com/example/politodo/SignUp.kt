@@ -98,7 +98,7 @@ class SignUp : AppCompatActivity() {
                             // Si falla el registro, muestra un mensaje de error al usuario
                             Toast.makeText(
                                 baseContext,
-                                "Authentication failed.",
+                                "Fallo en la creacion de cuenta failed.",
                                 Toast.LENGTH_SHORT
                             ).show()
                             // Aquí puedes llamar a una función para manejar el fallo del registro

@@ -57,16 +57,6 @@
         app:layout_constraintTop_toTopOf="@+id/editTextText4"
         app:srcCompat="@drawable/notificacion" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextText5"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText5"
-        app:layout_constraintTop_toTopOf="@+id/editTextText5"
-        app:srcCompat="@drawable/sorting" />
-
     <EditText
         android:id="@+id/txt_titulo_tarea"
         android:layout_width="333dp"
@@ -75,8 +65,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Título"
         android:inputType="text"
-        android:text="Título"
         android:textColor="#80000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,8 +79,8 @@
         android:layout_height="35dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Añade una descripción"
         android:inputType="text"
-        android:text="Añade una descripción"
         android:textColor="#80000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/txt_titulo_tarea"
@@ -103,8 +93,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Fecha de vencimiento"
         android:inputType="text"
-        android:text="Fecha de vencimiento"
         android:textColor="#80000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/txt_descripcion_tarea"
@@ -117,27 +107,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Agrega un recordatorio"
         android:inputType="text"
-        android:text="Agrega un recordatorio"
         android:textColor="#80000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextText3"
         app:layout_constraintStart_toStartOf="@+id/editTextText3"
         app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
-
-    <EditText
-        android:id="@+id/editTextText5"
-        android:layout_width="333dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Categoría"
-        android:textColor="#80000000"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText4"
-        app:layout_constraintStart_toStartOf="@+id/editTextText4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
 
     <ImageView
         android:id="@+id/imageView2"
